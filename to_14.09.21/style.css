@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    background-color:lightgoldenrodyellow;
+}
+
+header {
+    background-color: rgba(200, 150, 100, 0.5);
+    height: 10%;
+    width: 100%;
+    vertical-align: middle;
+}
+
+header ul {
+    width: 30%;
+    display: inline;
+    margin: 0;
+}
+
+main {
+    background-color: white;
+    width: 80%;
+    margin: 5%;
+    margin-top: 3%;
+    padding: 5%;
+    padding-top: 2%;
+}
+
+header li {
+    display: inline;
+    margin: 2.5%;
+}
+
+a {
+    font-size: medium;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+header div {
+    padding: 1%;
+    padding-left: 0;
+    vertical-align: middle;
+}
+
+.head_img {
+    position: relative;
+    display: inline;
+    height: 3em;
+    margin: 0.5%;
+}
+
+main img {
+    max-width: 50%;
+    float: left;
+    margin-right: 2%;
+}
