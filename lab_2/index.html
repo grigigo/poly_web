@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin-bottom: 1%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Форма обратной связи</h1>
+
+        <form method="POST" action="https://httpbin.org/post">
+            
+            <div>
+                <label for="fio">ФИО</label>
+                <input type="text" id="fio" name="fio" value="Ты писька">
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="пупок_ваньки@mail.ru" required>
+            </div>    
+
+            <div>
+                <p>Круто</p>
+                <input type="radio" name="source" id="reklama" value="reklama">
+                <label for="reklama">Реклама</label>
+
+                <input type="radio" name="source" id="web" value="web" checked>
+                <label for="web">Сайт</label>
+            </div>
+
+            <div>
+                <label for="msg">Текст сообщения</label>
+                <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+            </div>
+
+            <div>
+                <label for="category"></label>
+                <select name="category" id="category" multiple>
+                    <option value="prospal">Проспал</option>
+                    <option value="komment" selected>Комментарий</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="checkbox" name="agree" id="agree" value="no">
+                <label for="agree" value>Согласен ли ты на...?</label>
+            </div>
+
+            <div>
+                <label for="filik">Отправь фуйл</label>
+                <input type="file" name="filik" id="filik">
+            </div>
+
+            <div>
+                <!--
+                    disabled
+                    
+                -->
+            </div>
+
+            <div>
+                <input type="submit" value="Отправить">
+            </div>
+
+        </form>
+    </main>
+</body>
+</html>
