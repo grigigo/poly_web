@@ -1,0 +1,8 @@
+telnet httpbin.org 80
+
+POST /post HTTP/1.1
+Host: httpbin.org
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+
+say=Hi&to=Mom

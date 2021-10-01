@@ -7,52 +7,62 @@
     <title>Document</title>
     <style>
         div {
-            margin-bottom: 1%;
+            margin-bottom: 2%;
+        }
+
+        form {
+            margin-bottom: 5%;
+            text-align: center;
+            background-color: bisque;
+            width: 50%;
+            border-radius: 10%;
+            margin: 0 25%;
+        }
+
+        h1 {
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <main>
         <h1>Форма обратной связи</h1>
-
         <form method="POST" action="https://httpbin.org/post">
             
             <div>
                 <label for="fio">ФИО</label>
-                <input type="text" id="fio" name="fio" value="Ты писька">
+                <input type="text" id="fio" name="fio" value="Евсейка">
             </div>
 
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="пупок_ваньки@mail.ru" required>
+                <input type="email" name="email" id="email" placeholder="ванька_встанька@gmail.com" required>
             </div>    
 
             <div>
-                <p>Круто</p>
+                <p>Откуда узнали про нас?</p>
                 <input type="radio" name="source" id="reklama" value="reklama">
                 <label for="reklama">Реклама</label>
 
-                <input type="radio" name="source" id="web" value="web" checked>
-                <label for="web">Сайт</label>
+                <input type="radio" name="source" id="friends" value="friends">
+                <label for="friends">Знакомые</label>
+
+                <input type="radio" name="source" id="lucky" value="lucky" checked>
+                <label for="lucky">Случайно</label>
             </div>
 
             <div>
-                <label for="msg">Текст сообщения</label>
-                <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
-            </div>
-
-            <div>
-                <label for="category"></label>
+                <label for="category">Что пишем?</label><br>
                 <select name="category" id="category" multiple>
-                    <option value="prospal">Проспал</option>
-                    <option value="komment" selected>Комментарий</option>
+                    <option value="zhaloba">Жалоба</option>
+                    <option value="prodlog" selected>Предложение</option>
                 </select>
             </div>
 
             <div>
-                <input type="checkbox" name="agree" id="agree" value="no">
-                <label for="agree" value>Согласен ли ты на...?</label>
-            </div>
+                <label for="msg">Текст сообщения</label><br>
+                <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+            </div>            
 
             <div>
                 <label for="filik">Отправь фуйл</label>
@@ -60,10 +70,32 @@
             </div>
 
             <div>
-                <!--
-                    disabled
-                    
-                -->
+                <input type="checkbox" name="agree" id="agree" value="no">
+                <label for="agree" value>Даю согласие на обработку персональных данных</label>
+            </div>
+
+            <div>
+                <input type="submit" value="Отправить">
+            </div>
+
+        </form>
+
+        <h1>Форма аутентификации</h1>
+        <form method="POST" action="https://httpbin.org/post">
+        
+            <div>
+                <label for="login">Логин:</label>
+                <input type="text" id="login" name="login" placeholder="example@mail.ru" required>
+            </div>
+
+            <div>
+                <label for="password">Пароль:</label>
+                <input type="text" id="password" name="password" placeholder="********" required>
+            </div>
+
+            <div>
+                <input type="checkbox" name="remember" id="remember" value="no">
+                <label for="remember" value>Запомнить меня</label>
             </div>
 
             <div>
