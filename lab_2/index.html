@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,11 +29,12 @@
         }
     </style>
 </head>
+
 <body>
     <main>
         <h1>Форма обратной связи</h1>
         <form method="POST" action="https://httpbin.org/post">
-            
+
             <div>
                 <label for="fio">ФИО</label>
                 <input type="text" id="fio" name="fio" value="Евсейка">
@@ -41,7 +43,7 @@
             <div>
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="ванька_встанька@gmail.com" required>
-            </div>    
+            </div>
 
             <div>
                 <p>Откуда узнали про нас?</p>
@@ -66,7 +68,7 @@
             <div>
                 <label for="msg">Текст сообщения</label><br>
                 <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
-            </div>            
+            </div>
 
             <div>
                 <label for="filik">Отправь фуйл</label>
@@ -86,7 +88,7 @@
 
         <h1>Форма аутентификации</h1>
         <form method="POST" action="https://httpbin.org/post">
-        
+
             <div>
                 <label for="login">Логин:</label>
                 <input type="text" id="login" name="login" placeholder="example@mail.ru" required>
@@ -109,4 +111,5 @@
         </form>
     </main>
 </body>
+
 </html>
