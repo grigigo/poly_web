@@ -1,0 +1,97 @@
+html, body, main {
+    height: 100%;
+}
+
+main {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.calc-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 290px;
+    min-width: 300px;
+}
+
+.calc-container {
+    min-height: 220px;
+    min-width: 220px;
+    display: flex;
+    width: 25%;
+    height: 220px;
+    text-align: center;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background-color: rgb(233, 233, 233);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.digits {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+}
+
+.spec {
+    align-self: flex-end;
+}
+
+.invis {
+    opacity: 0;
+}
+
+.screen {
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: red;
+    color: white;
+    height: 40px;
+}
+
+.other {
+    align-items: end;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+button {
+    border-radius: 40px;
+    background-color: rgb(187, 187, 187);
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+}
+
+.buttons {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+span {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+h1 {
+    color: white;
+    font-size: 1px;
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+}
