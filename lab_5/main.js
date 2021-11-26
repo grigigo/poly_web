@@ -124,11 +124,53 @@ function downloadData(page = 1,search='') {
     xhr.send();
 }
 
+function pageBtnList(event) {
+    console.log(event.target.innerHTML);
+    document.querySelector("#search-field").value = event.target.innerHTML;
+    let datainput = document.querySelector("#search-field");
+    downloadData(event.target.dataset.page,datainput.value);
+}
+
 window.onload = function () {
     downloadData();
     document.querySelector('.per-page-btn').onchange = function () {
         downloadData();
     }
+
     document.querySelector('.pagination').onclick = pageBtnHandler;
     document.querySelector('.search-btn').onclick = pageBtnSearch;
+    document.querySelector('#search-field').onkeyup = inputData;
+    document.querySelector('.search-list-ul').onclick = pageBtnList;
+}
+
+function createAutoSearchElem(element) {
+    let itemElement = document.createElement('li');
+    itemElement.classList.add('auto-list-item');
+    itemElement.innerHTML = element;
+    return itemElement;
+}
+
+function renderList(array) {
+    let autoSearch = document.querySelector('.search-list-ul');
+    autoSearch.innerHTML = '';
+    console.log(array);
+    
+    for (let elem of array) {
+        if (elem != document.querySelector('#search-field').value) autoSearch.append(createAutoSearchElem(elem));
+    }
+}
+
+function inputData() {
+    let autoList = document.querySelector('.search-list');
+    let datainput = document.querySelector('#search-field');
+    let url = new URL(autoList.dataset.url);
+    url.searchParams.append('q', datainput.value);
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.responseType = 'json';
+    xhr.onload = function () {
+        renderList(this.response);
+    }
+    xhr.send();
+
 }
