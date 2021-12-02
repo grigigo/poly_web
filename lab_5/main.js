@@ -57,12 +57,12 @@ function setPaginationInfo(info) {
     document.querySelector('.current-interval-end').innerHTML = end;
 }
 
-function createPageBtn(page,classes=[]){
-    let btn= document.createElement('button');
+function createPageBtn(page, classes = []) {
+    let btn = document.createElement('button');
     classes.push('btn');
     btn.classList.add(...classes);
     btn.dataset.page = page;
-    btn.innerHTML=page;
+    btn.innerHTML = page;
     return btn;
 }
 
@@ -74,22 +74,22 @@ function renderPaginationElement(info) {
     if (info.total_pages == 0)
         return;
 
-    btn=createPageBtn(1,['first-page-btn']);
-    btn.innerHTML= 'Первая страница';
+    btn = createPageBtn(1, ['first-page-btn']);
+    btn.innerHTML = 'Первая страница';
     paginationContainer.append(btn);
 
     let buttonsContainer = document.createElement('div');
     buttonsContainer.classList.add('pages-btns');
     paginationContainer.append(buttonsContainer);
 
-    let start = info.current_page >2 ? info.current_page - 2: 1;
-    let end = Math.min(info.current_page + 2 ,info.total_pages);
+    let start = info.current_page > 2 ? info.current_page - 2 : 1;
+    let end = Math.min(info.current_page + 2, info.total_pages);
 
-    for (let i=start; i<= end; i++){
-        buttonsContainer.append(createPageBtn(i,i==info.current_page? ['active'] : []));
+    for (let i = start; i <= end; i++) {
+        buttonsContainer.append(createPageBtn(i, i == info.current_page ? ['active'] : []));
     }
-    btn=createPageBtn(info.total_pages,['last-page-btn']);
-    btn.innerHTML= 'Последняя страница';
+    btn = createPageBtn(info.total_pages, ['last-page-btn']);
+    btn.innerHTML = 'Последняя страница';
     paginationContainer.append(btn);
 
 }
@@ -97,16 +97,16 @@ function renderPaginationElement(info) {
 function pageBtnHandler(event) {
     if (event.target.dataset.page) {
         let datainput = document.querySelector("#search-field");
-        downloadData(event.target.dataset.page,datainput.value);
+        downloadData(event.target.dataset.page, datainput.value);
     }
 }
 
 function pageBtnSearch(event) {
-        let datainput = document.querySelector("#search-field");
-        downloadData(event.target.dataset.page,datainput.value);
+    let datainput = document.querySelector("#search-field");
+    downloadData(event.target.dataset.page, datainput.value);
 }
 
-function downloadData(page = 1,search='') {
+function downloadData(page = 1, search = '') {
     let factsList = document.querySelector('.facts-list');
     let perPage = document.querySelector('.per-page-btn').value;
     let url = new URL(factsList.dataset.url);
@@ -128,7 +128,7 @@ function pageBtnList(event) {
     console.log(event.target.innerHTML);
     document.querySelector("#search-field").value = event.target.innerHTML;
     let datainput = document.querySelector("#search-field");
-    downloadData(event.target.dataset.page,datainput.value);
+    downloadData(event.target.dataset.page, datainput.value);
     document.querySelector('.search-list-ul').innerHTML = '';
 }
 
@@ -155,7 +155,7 @@ function renderList(array) {
     let autoSearch = document.querySelector('.search-list-ul');
     autoSearch.innerHTML = '';
     console.log(array);
-    
+
     for (let elem of array) {
         if (elem != document.querySelector('#search-field').value) autoSearch.append(createAutoSearchElem(elem));
     }
