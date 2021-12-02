@@ -129,6 +129,7 @@ function pageBtnList(event) {
     document.querySelector("#search-field").value = event.target.innerHTML;
     let datainput = document.querySelector("#search-field");
     downloadData(event.target.dataset.page,datainput.value);
+    document.querySelector('.search-list-ul').innerHTML = '';
 }
 
 window.onload = function () {

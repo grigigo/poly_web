@@ -1,0 +1,1 @@
+npx htmlhint "./lab_2/index.html"

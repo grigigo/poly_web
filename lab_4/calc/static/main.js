@@ -98,31 +98,28 @@ function compile(str) {
 // (https://ru.wikipedia.org/wiki/Обратная_польская_запись#Вычисления_на_стеке).
 
 function evaluate(str) {
-    let res;
-    let element1;
-    let element2;
-    const stack = [];
-    for (let index = 0; index < str.length; index++) {
-        if (str[index] != "+" && str[index] != '-' && str[index] != '*' && str[index] != '/') { stack.push(str[index]); }
-        else {
-            element1 = stack.pop(); 
-            element2 = stack.pop();
-            if (str[index] == "+") {
-                stack.push(Number(element1) + Number(element2));
-            }
-            if (str[index] == "-") {
-                stack.push(Number(element2)-Number(element1));
-            }
-            if (str[index] == "*") {
-                stack.push(Number(element1) * Number(element2));
-            }
-            if (str[index] == "/") {
-                stack.push(Number(element2)/Number(element1));
-            } 
-        }
+    let a;
+    let b;
+    stack = [];
 
+    for (let i = 0; i < str.length; i++) {
+        if (isNumeric(str[i])) 
+            stack.push(str[i]);
+        else {
+            a = stack.pop(); 
+            b = stack.pop();
+
+            if (str[i] == "+")
+                stack.push(Number(a) + Number(b));
+            else if (str[i] == "-")
+                stack.push(Number(b) - Number(a));
+            else if (str[i] == "*")
+                stack.push(Number(a) * Number(b));
+            else if (str[i] == "/")
+                stack.push(Number(b) / Number(a));
+        }
     }
-    console.log(stack);
+
     return (stack);
 }
 
@@ -141,17 +138,20 @@ function evaluate(str) {
 // не назначать обработчик для каждой кнопки в отдельности.
 
 document.addEventListener('click', function (event) {
-    let bool;
     if (event.target.tagName != 'BUTTON') return;
+
     if (document.getElementById("span").textContent == 'Введите выражение')
         document.getElementById("span").textContent = '';
+
     if (event.target.innerHTML == 'C') {
         document.getElementById("span").textContent = 'Введите выражение';
         return;
     }
+    
     if (event.target.innerHTML == '=') {
         document.getElementById("span").textContent = Math.round((evaluate(tokenize(compile(document.getElementById("span").textContent))))* 100) / 100;
         return;
     }
+    
     document.getElementById("span").textContent = document.getElementById("span").textContent + event.target.innerHTML;
 })
