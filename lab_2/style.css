@@ -1,0 +1,20 @@
+div {
+    margin-bottom: 2%;
+}
+
+form {
+    margin-bottom: 5%;
+    text-align: center;
+    background-color: bisque;
+    width: 50%;
+    border-radius: 10%;
+    margin: 0 25%;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1613179689_89-p-zheltii-graficheskii-fon-99.jpg");
+}

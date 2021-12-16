@@ -1,0 +1,71 @@
+body {
+    background-color: #FFCE45;
+    background-attachment: scroll;
+}
+
+header {
+    background-color: #FFCC1D;
+    color: black;
+}
+
+footer {
+    background-color: #FFCC1D;
+    color: black;
+}
+
+.c1 {
+    background-color: #F0BB62;
+}
+
+.c2 {
+    background-color: #F4EEA9;
+}
+
+.c3 {
+    background-color: #F0BB62;
+}
+
+.list-contact {
+    text-align: center;
+    font-size: large;
+}
+
+.list-contact dl {
+    margin: auto 0;
+}
+
+a img {
+    width: 40px;
+}
+
+span img {
+    width: 30px;
+}
+
+.icon {
+    width: 25px;
+    margin: 0 5px;
+}
+
+li a {
+    font-size: large;
+}
+
+@media (min-width: 1080px) {
+    .main-window {
+        box-shadow: 0 0 20px 15px;
+        width: 66%;
+    }
+
+    p {
+        font-size: large;
+    }
+}
+
+.row {
+    margin: 0;
+}
+
+@media (max-width: 1280px) {
+
+}

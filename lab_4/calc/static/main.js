@@ -78,7 +78,7 @@ function compile(str) {
             stack.push(token);
         } else if (token == ')') {
             while (stack.length > 0 && stack[stack.length - 1] != '(') {
-                out.push(stack.pop());  
+                out.push(stack.pop());
             } 
             stack.pop();
         }
