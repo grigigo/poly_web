@@ -173,5 +173,4 @@ function inputData() {
         renderList(this.response);
     }
     xhr.send();
-
 }
