@@ -23,7 +23,8 @@ function downloadData(action = 'GET', task_id = -1, task_form = '', status = '')
     }
 
     if (action == 'PUT') {
-        let body = '&status=' + status;
+        let body = '&name=' + task_form['name'] + '&desc=' + task_form['desc'] + 
+            (status == '' ? ('&status=' + task_form['status']) : ('&status=' + status));
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=utf-8");
         xhr.send(body);
     }
@@ -103,7 +104,7 @@ function updateTask(form) {
             'desc': form.elements['description'].value,
             'status': form.elements['column'].value,
         }
-        downloadData('PUT', form.elements['task-id'].value, task_form);
+        downloadData('PUT', form.elements['task-id'].value, task_form, '');
         return 1;
     }
 }
@@ -134,7 +135,7 @@ function actionTaskBtnHandler(event) {
             'desc': form.elements['description'].value,
             'status': form.elements['column'].value,
         }
-        downloadData('POST', -1, task_form);
+        downloadData('POST', -1, task_form, 0);
 
         alertMsg = `Задача ${form.elements['name'].value} была успешно создана!`;
     } else if (action == 'edit') {
@@ -187,7 +188,7 @@ function removeTaskBtnHandler(event) {
 
     console.log(form)
     console.log(form.elements['task-id'].value);
-    downloadData('DELETE', form.elements['task-id'].value, 0);
+    downloadData('DELETE', form.elements['task-id'].value, 0, 0);
 
     let tasksCounterElement = taskElement.closest('.card').querySelector('.tasks-counter');
     tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) - 1;
@@ -208,7 +209,7 @@ function moveBtnHandler(event) {
     tasksCounterElement = targetListElement.closest('.card').querySelector('.tasks-counter');
     tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
 
-    downloadData('PUT', taskElement.id, 0, currentListElement.id != 'done-list' ? 'done' : 'to-do');
+    downloadData('PUT', taskElement.id, 0, currentListElement.id != 'done-list' ? 'done' : 'to-do', 0);
 }
 
 let taskCounter = 0;
