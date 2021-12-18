@@ -23,7 +23,7 @@ function downloadData(action = 'GET', task_id = -1, task_form = '', status = '')
     }
 
     if (action == 'PUT') {
-        let body = '&name=' + task_form['name'] + '&desc=' + task_form['desc'] + 
+        let body = (task_form == '' ? ('') : ('&name=' + task_form['name'] + '&desc=' + task_form['desc'])) + 
             (status == '' ? ('&status=' + task_form['status']) : ('&status=' + status));
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=utf-8");
         xhr.send(body);
@@ -209,7 +209,7 @@ function moveBtnHandler(event) {
     tasksCounterElement = targetListElement.closest('.card').querySelector('.tasks-counter');
     tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
 
-    downloadData('PUT', taskElement.id, 0, currentListElement.id != 'done-list' ? 'done' : 'to-do', 0);
+    downloadData('PUT', taskElement.id, '', currentListElement.id != 'done-list' ? 'done' : 'to-do');
 }
 
 let taskCounter = 0;
