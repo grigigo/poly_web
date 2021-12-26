@@ -1,17 +1,38 @@
 'use strict';
 
-let api_key = '50d2199a-42dc-447d-81ed-d68a443b697e';
-let url_site = 'http://tasks-api.std-900.ist.mospolytech.ru/api/tasks';
 //'name' : elem['name'], 'desc' : elem['desc'], 'id' : elem['id'], 'status' : elem['status']
 
-function downloadData(action = 'GET', task_id = -1, task_form = '', status = '') {
+async function downloadData(action = 'GET', task_id = -1, task_form = '', status = '') {
+    let api_key = '50d2199a-42dc-447d-81ed-d68a443b697e';
+    let url_site = 'http://tasks-api.std-900.ist.mospolytech.ru/api/tasks';
+
     if (task_id != -1) {
         url_site += '/';
         url_site += task_id;
     }
+
+    let promise = new Promise((resolve, reject) =>{
+        resolve("result");
+        reject("");
+    });
+    promise.catch(error);
+    promise.then(
+        result => {
+
+        },
+        error => {
+
+        }
+    );
+
     let url = new URL(url_site);
     console.log(url_site);
     url.searchParams.append('api_key', api_key);
+
+    /*let response = await fetch(url);
+    let text = response.json();
+    console.log(text);*/
+
     let xhr = new XMLHttpRequest();
     xhr.open(action, url);
     xhr.responseType = 'json';
